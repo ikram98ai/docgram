@@ -14,6 +14,9 @@ format:
 dev: 
 	uv run fastapi dev app/main.py --reload
 
+dev-web:
+	cd web && npm run dev
+
 # deploy:
 # 	@echo "Deploying to AWS Lambda..."
 # 	terraform -chdir=terraform init
