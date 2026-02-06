@@ -40,6 +40,30 @@ def create_tables():
 
 
 @app.command()
+def delete_tables():
+    """
+    Delete all database tables.
+    """
+    tables = [
+        UserModel,
+        PostModel,
+        LikeModel,
+        CommentModel,
+        FollowModel,
+        ChatConversationModel,
+        ChatMessageModel,
+        Notification,
+        BookmarkModel,
+    ]
+    for table in tables:
+        if table.exists():
+            print(f"Deleting table {table.Meta.table_name}")
+            table.delete_table(wait=True)
+        else:
+            print(f"Table {table.Meta.table_name} does not exist")
+
+
+@app.command()
 def create_admin(
     username: str = typer.Option(..., "--username", "-u"),
     email: str = typer.Option(..., "--email", "-e"),

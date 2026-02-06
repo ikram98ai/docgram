@@ -20,7 +20,7 @@ def get_model():
     )
 
     model = OpenAIChatCompletionsModel(
-        openai_client=gemini_client, model="gemini-2.0-flash"
+        openai_client=gemini_client, model="gemini-2.5-flash"
     )
 
     return model

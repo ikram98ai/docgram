@@ -7,10 +7,10 @@ from fastapi.responses import RedirectResponse
 from mangum import Mangum
 from .log_conf import logging
 from . import routers
-
+from .config import settings
 
 app = FastAPI(version="1.0.0", title="DocGram API")
-origins = ["*"]
+origins = ["*"] if settings.debug else []
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,

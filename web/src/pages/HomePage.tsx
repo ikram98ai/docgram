@@ -23,6 +23,7 @@ export default function HomePage() {
       </div>
     );
   }
+  console.log("Posts data:", posts);
 
   if (error) {
     return (

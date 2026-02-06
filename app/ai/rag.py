@@ -11,7 +11,7 @@ logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 
 # Config
-EMBED_MODEL = "text-embedding-004"
+EMBED_MODEL = "gemini-embedding-001"
 EMBED_DIM = 768
 PINECONE_INDEX = "docgram-index"
 PINECONE_REGION = "us-east-1"
@@ -149,7 +149,7 @@ class RAGIndexer:
         max_retries = 3
         for attempt in range(1, max_retries + 1):
             try:
-                res = self.client.embeddings.create(input=texts, model=self.embed_model)
+                res = self.client.embeddings.create(input=texts, model=self.embed_model, dimensions=self.embed_dim)
                 embeds = [record.embedding for record in res.data]
                 return embeds
             except Exception as e:

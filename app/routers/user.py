@@ -11,6 +11,7 @@ from ..schemas import User, UserUpdateRequest, Post
 from ..models import PostModel
 from ..utils import upload_to_s3
 from .utils import get_user_by_id
+
 # Configure logging
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)

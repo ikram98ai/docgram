@@ -11,10 +11,10 @@ from ..utils import upload_to_s3
 from ..models import UserModel, PostModel, ChatMessageModel, ChatConversationModel
 from ..ai.rag import get_rag_instance
 from ..ai.ai_agents import agent_runner
+
 # Configure logging
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
-
 
 
 def get_pdf_page_count(pdf_content: bytes) -> int:

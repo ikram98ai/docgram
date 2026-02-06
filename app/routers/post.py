@@ -30,7 +30,6 @@ from ..models import (
     UserModel,
     PostModel,
     CommentModel,
-    FollowModel,
     get_current_user_context,
 )
 from ..schemas import (
@@ -131,12 +130,11 @@ async def list_posts(
 async def get_user_feed():
     """Get personalized feed based on following"""
     try:
-
         all_posts = PostModel.public_posts_index.query(
-            1,   
+            1,
             scan_index_forward=False,
             limit=50,  # Limit per user to prevent one user dominating feed
-        )       
+        )
 
         # Convert to response format
         result = []
@@ -171,7 +169,7 @@ async def get_user_feed():
                     comments_count=post.comments_count,
                     shares_count=post.shares_count,
                     is_liked=False,
-                    is_bookmarked= False,
+                    is_bookmarked=False,
                     created_at=post.created_at,
                 ).dict()
 

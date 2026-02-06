@@ -11,7 +11,6 @@ from pynamodb.attributes import (
     JSONAttribute,
 )
 from pynamodb.indexes import AllProjection, GlobalSecondaryIndex
-import os
 
 # Environment configuration for DynamoDB
 REGION = settings.aws_region
